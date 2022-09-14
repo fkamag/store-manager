@@ -20,7 +20,6 @@ const findById = async (req, res) => {
 const registerProduct = async (req, res) => {
   const product = req.body;
   const json = await productService.registerProduct(product);
-  console.log(json);
   return res.status(201).json(json);
 };
 
