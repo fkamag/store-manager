@@ -17,7 +17,8 @@ describe('Verificar o Product Model', () => {
 
   it('Buscando produto por Id', async () => {
     sinon.stub(conn, 'execute').resolves([[mock.productIdResponse]]);
-    const result = await productModel.findById(1);
+    const id = 1;
+    const result = await productModel.findById(id);
     expect(result).to.be.equal(mock.productIdResponse);
   })
 
