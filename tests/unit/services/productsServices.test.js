@@ -11,6 +11,6 @@ describe('Verificar o Product Service', () => {
   it('Buscando todos os produtos', async () => {
     sinon.stub(productModel, 'getAllProducts').resolves(mock.productsAllResponse);
     const result = await productService.getAllProducts();
-    expect(result).to.equal({ type: null, message: mock.productsAllResponse });
+    expect(result).to.be.deep.equal({ type: null, message: mock.productsAllResponse });
   })
 })
