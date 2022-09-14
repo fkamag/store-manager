@@ -40,5 +40,21 @@ describe('Verificar o Product Controller', () => {
       expect(res.status.calledWith(200)).to.be.equal(true);
       expect(res.json.calledWith(mock.productIdResponse)).to.be.equal(true);
     });
+
+    it('retorna status 404 product not found', async () => {
+      const req = {
+        params: {
+          id: 999
+        }
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productService, 'findById')
+        .resolves({ type: 'PRODUCT_NOT_FOUND', message: 'Product not found' });
+      const result = await productController.findById(req, res);
+      expect(res.status.calledWith(404)).to.be.equal(true);
+      expect(res.json.calledWith({ message: 'Product not found' })).to.be.equal(true);
+    });
   });
 });
