@@ -18,7 +18,10 @@ const productIdResponse = {
   "name": "Martelo de Thor"
 };
 
+const productNotFound = null;
+
 module.exports = {
   productsAllResponse,
   productIdResponse,
+  productNotFound,
 };
