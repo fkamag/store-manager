@@ -22,9 +22,23 @@ describe('Verificar o Product Controller', () => {
 
       afterEach(sinon.restore);
     });
+  });
 
-    it('é chamado o json com a lista de motoristas', async function () {
-
+  describe('Buscando produto por id', () => {
+    it('retorna produto buscado com status 200', async () => {
+      const req = {
+        params: {
+          id: 1
+        }
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productService, 'findById')
+        .resolves({ type: null, message: mock.productIdResponse });
+      const result = await productController.findById(req, res);
+      expect(res.status.calledWith(200)).to.be.equal(true);
+      expect(res.json.calledWith(mock.productIdResponse)).to.be.equal(true);
     });
   });
 });

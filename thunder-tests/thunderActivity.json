@@ -8,7 +8,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T15:29:36.411Z",
-    "modified": "2022-09-13T01:39:16.081Z",
+    "modified": "2022-09-14T14:50:20.736Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -25,7 +25,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T19:56:22.196Z",
-    "modified": "2022-09-13T01:53:37.363Z",
+    "modified": "2022-09-14T14:52:30.549Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -42,7 +42,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T20:13:47.302Z",
-    "modified": "2022-09-12T01:24:22.283Z",
+    "modified": "2022-09-14T14:52:34.091Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -59,7 +59,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T20:13:52.500Z",
-    "modified": "2022-09-12T01:29:29.863Z",
+    "modified": "2022-09-14T14:52:37.055Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -76,7 +76,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T20:13:57.151Z",
-    "modified": "2022-09-12T02:17:54.524Z",
+    "modified": "2022-09-14T14:52:39.277Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -93,7 +93,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-09-11T20:22:18.605Z",
-    "modified": "2022-09-11T20:49:00.081Z",
+    "modified": "2022-09-14T14:52:46.178Z",
     "headers": [],
     "params": [],
     "auth": {
@@ -128,6 +128,40 @@
     "sortNum": 0,
     "created": "2022-09-11T20:49:33.194Z",
     "modified": "2022-09-11T23:33:31.028Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2"
+    },
+    "tests": []
+  },
+  {
+    "_id": "8b1a6ff7-82b7-4221-869a-ea433e5cdfe7",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/x",
+    "url": "http://localhost:3000/products/x",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-14T14:52:49.719Z",
+    "modified": "2022-09-14T14:52:49.802Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "oauth2"
+    },
+    "tests": []
+  },
+  {
+    "_id": "3b07f43d-6161-4a20-9797-12fa8acf5931",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/",
+    "url": "http://localhost:3000/products/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-09-14T14:53:24.907Z",
+    "modified": "2022-09-14T14:53:24.980Z",
     "headers": [],
     "params": [],
     "auth": {
