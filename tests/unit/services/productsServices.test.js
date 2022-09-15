@@ -29,4 +29,10 @@ describe('Verificar o Product Service', () => {
     expect(result).to.be.deep.equal({ type: 'PRODUCT_NOT_FOUND', message: 'Product not found' });
   });
 
+  it('Cadastrando um novo produto', async () => {
+    sinon.stub(productModel, 'registerProduct').resolves(5);
+    const result = await productService.registerProduct(mock.newProduct);
+    expect(result).to.be.deep.equal({ id: 5, name: 'Produto1' });
+  })
+
 });

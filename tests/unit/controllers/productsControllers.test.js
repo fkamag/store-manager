@@ -52,9 +52,21 @@ describe('Verificar o Product Controller', () => {
       res.json = sinon.stub().returns();
       sinon.stub(productService, 'findById')
         .resolves({ type: 'PRODUCT_NOT_FOUND', message: 'Product not found' });
-      const result = await productController.findById(req, res);
+      await productController.findById(req, res);
       expect(res.status.calledWith(404)).to.be.equal(true);
       expect(res.json.calledWith({ message: 'Product not found' })).to.be.equal(true);
+    });
+  });
+
+  describe('Cadastrando um novo produto', () => {
+    it('retorna status 201 para novo produto cadastrado', async () => {
+      const req = {};
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+      sinon.stub(productService, 'registerProduct').resolves({ id: 5, name: 'Produto1' });
+      await productController.registerProduct(req, res);
+      expect(res.status.calledWith(201)).to.be.equal(true);
     });
   });
 });

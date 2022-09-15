@@ -20,8 +20,13 @@ const productIdResponse = {
 
 const productNotFound = null;
 
+const newProduct = {
+  name: 'Produto1'
+};
+
 module.exports = {
   productsAllResponse,
   productIdResponse,
   productNotFound,
+  newProduct,
 };

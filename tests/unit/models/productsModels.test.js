@@ -22,6 +22,12 @@ describe('Verificar o Product Model', () => {
     expect(result).to.be.equal(mock.productIdResponse);
   })
 
+  it('Cadastrando um novo produto', async () => {
+    sinon.stub(conn, 'execute').resolves([{ insertId: 5 }]);
+    const result = await productModel.registerProduct(mock.newProduct);
+    expect(result).to.equal(5);
+  })
+
   afterEach(sinon.restore);
 
 })
