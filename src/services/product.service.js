@@ -18,8 +18,15 @@ const registerProduct = async (product) => {
   return { id: insertId, name: product.name };
 };
 
+const putById = async (id, product) => {
+  const productName = product.name;
+  const result = await productModel.putById(id, productName);
+  return result;
+};
+
 module.exports = {
   getAllProducts,
   findById,
   registerProduct,
+  putById,
 };

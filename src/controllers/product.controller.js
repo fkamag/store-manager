@@ -23,8 +23,22 @@ const registerProduct = async (req, res) => {
   return res.status(201).json(json);
 };
 
+const putById = async (req, res) => {
+  const { id } = req.params;
+  const product = req.body;
+  const { type, message } = await productService.findById(Number(id));
+  if (type) {
+    const status = errorMap.mapError(type);
+    return res.status(status).json({ message });
+  }
+  const updated = { id, ...req.body };
+  await productService.putById(id, product);
+  return res.status(200).json(updated);
+};
+
 module.exports = {
   getAllProducts,
   findById,
   registerProduct,
+  putById,
 };
