@@ -10,6 +10,18 @@ const getAllSales = async () => {
   return result;
 };
 
+const findById = async (id) => {
+  const [result] = await connection.execute(
+    `SELECT date, product_id as productId, quantity
+    FROM StoreManager.sales_products as sp
+    JOIN StoreManager.sales as s
+    ON sp.sale_id = s.id
+    WHERE s.id = ?`, [id],
+  );
+  return result;
+};
+
 module.exports = {
   getAllSales,
+  findById,
 };
