@@ -24,8 +24,15 @@ const registerProduct = async (product) => {
 };
 
 const putById = async (id, productName) => {
-  const result = await connection.execute(
+  const [result] = await connection.execute(
     'UPDATE StoreManager.products SET name = ? WHERE id = ?', [productName, id],
+  );
+  return result;
+};
+
+const deleteById = async (id) => {
+  const [result] = await connection.execute(
+    'DELETE FROM StoreManager.products WHERE id = ?', [id],
   );
   return result;
 };
@@ -35,4 +42,5 @@ module.exports = {
   findById,
   registerProduct,
   putById,
+  deleteById,
 };

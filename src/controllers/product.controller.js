@@ -36,9 +36,21 @@ const putById = async (req, res) => {
   return res.status(200).json(updated);
 };
 
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const { type, message } = await productService.findById(Number(id));
+  if (type) {
+    const status = errorMap.mapError(type);
+    return res.status(status).json({ message });
+  }
+  await productService.deleteById(id);
+  return res.status(204).end();
+};
+
 module.exports = {
   getAllProducts,
   findById,
   registerProduct,
   putById,
+  deleteById,
 };
