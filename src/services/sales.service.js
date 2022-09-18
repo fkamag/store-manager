@@ -1,7 +1,9 @@
 const { salesModel } = require('../models');
 
 const getAllSales = async () => {
+  console.log('a');
   const sales = await salesModel.getAllSales();
+  console.log(sales);
   return sales;
 };
 
