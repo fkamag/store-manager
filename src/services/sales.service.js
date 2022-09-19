@@ -27,9 +27,14 @@ const createSales = async (itens) => {
   return json;
 };
 
+const putById = async (id, product) => {
+  console.log(id, product);
+};
+
 module.exports = {
   getAllSales,
   findById,
   deleteById,
   createSales,
+  putById,
 };

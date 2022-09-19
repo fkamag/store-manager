@@ -42,9 +42,23 @@ const createSales = async (req, res) => {
   return res.status(201).json(json);
 };
 
+const putById = async (req, res) => {
+  const { id } = req.params;
+  const product = req.body;
+  const { type, message } = await salesService.findById(id);
+  if (type) {
+    const status = errorMap.mapError(type);
+    return res.status(status).json({ message });
+  }
+  const updated = { ...req.body };
+  await salesService.putById(id, product);
+  return res.status(200).json({ id, itemsUpdated: updated });
+};
+
 module.exports = {
   getAllSales,
   findById,
   deleteById,
   createSales,
+  putById,
 };
