@@ -29,7 +29,6 @@ const deleteById = async (req, res) => {
 
 const createSales = async (req, res) => {
   const itens = req.body;
-  console.log(itens);
   const resp = await Promise.all(itens.map(async (item) => (
     productService.findById(item.productId)
   )));
@@ -44,15 +43,22 @@ const createSales = async (req, res) => {
 
 const putById = async (req, res) => {
   const { id } = req.params;
-  const product = req.body;
+  const itens = req.body;
   const { type, message } = await salesService.findById(id);
   if (type) {
     const status = errorMap.mapError(type);
     return res.status(status).json({ message });
   }
-  const updated = { ...req.body };
-  await salesService.putById(id, product);
-  return res.status(200).json({ id, itemsUpdated: updated });
+  const resp = await Promise.all(itens.map(async (item) => (
+    productService.findById(item.productId)
+  )));
+  const result = resp.find((item) => item.type !== null);
+  if (result) {
+    const status = errorMap.mapError(result.type);
+    return res.status(status).json({ message: result.message });
+  }
+  const json = await salesService.putById(id, itens);
+  return res.status(200).json(json);
 };
 
 module.exports = {
