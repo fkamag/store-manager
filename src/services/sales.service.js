@@ -20,8 +20,16 @@ const deleteById = async (id) => {
   return result;
 };
 
+const createSales = async (itens) => {
+  const insertId = await salesModel.createSales();
+  await salesModel.insertProducts(insertId, itens);
+  const json = { id: insertId, itemsSold: itens };
+  return json;
+};
+
 module.exports = {
   getAllSales,
   findById,
   deleteById,
+  createSales,
 };

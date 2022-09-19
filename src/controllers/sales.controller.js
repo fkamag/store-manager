@@ -1,4 +1,4 @@
-const { salesService } = require('../services');
+const { salesService, productService } = require('../services');
 const errorMap = require('../utils/errorMap');
 
 const getAllSales = async (_req, res) => {
@@ -27,8 +27,24 @@ const deleteById = async (req, res) => {
   return res.status(204).end();
 };
 
+const createSales = async (req, res) => {
+  const itens = req.body;
+  console.log(itens);
+  const resp = await Promise.all(itens.map(async (item) => (
+    productService.findById(item.productId)
+  )));
+  const result = resp.find((item) => item.type !== null);
+  if (result) {
+    const status = errorMap.mapError(result.type);
+    return res.status(status).json({ message: result.message });
+  }
+  const json = await salesService.createSales(itens);
+  return res.status(201).json(json);
+};
+
 module.exports = {
   getAllSales,
   findById,
   deleteById,
+  createSales,
 };
