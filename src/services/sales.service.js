@@ -27,8 +27,10 @@ const createSales = async (itens) => {
   return json;
 };
 
-const putById = async (id, product) => {
-  console.log(id, product);
+const putById = async (id, itens) => {
+  await salesModel.putById(id, itens);
+  const json = { saleId: id, itemsUpdated: itens };
+  return json;
 };
 
 module.exports = {
